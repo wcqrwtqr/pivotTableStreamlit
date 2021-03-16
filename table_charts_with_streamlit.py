@@ -2,13 +2,18 @@ import pandas as pd
 import plotly.express as px
 import streamlit as st
 from PIL import Image
+import os
+
+
+package_dir = os.path.dirname(os.path.abspath(__file__))
+source_file = os.path.join(package_dir,'data.xlsx')
 
 st.set_page_config(page_title='Survey Results')
 st.header('Survey Results 2021')
 st.subheader('Table of sales')
 
 
-df = pd.read_excel('data.xlsx', sheet_name='data', usecols='A:I')
+df = pd.read_excel(source_file, sheet_name='data', usecols='A:I')
 df.dropna(inplace=True)
 df['Sale']=df['Price']*df['Qty']
 df['Profit']=df['Sale']*df['Margin']/100
