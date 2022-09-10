@@ -14,5 +14,18 @@ https://docs.streamlit.io/en/stable/troubleshooting/clean-install.html?highlight
 ## pip install
 
 ```python
-    pip install streamlit 
+    pip install streamlit
 ```
+
+
+## using docker 
+After cloning the repo you can run the below command
+
+```Bash
+    docker build -t pivot:latest . -f Dockerfile
+
+    docker run -p 8501:8501 pivot:latest
+```
+An image will be creared called pivot (you can change the name to your liking)
+Now you can open the streamlit page locally under https://localhost:8501
+
